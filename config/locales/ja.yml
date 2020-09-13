@@ -1,3 +1,21 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+      record_invalid: "バリデーションに失敗しました。: %{errors}"
+      restrict_dependent_destroy:
+        has_one: "%{record}が存在しているので削除できません"
+        has_many: "%{record}が存在しているので削除できません"
+  models:
+    task: タスク
+  attributes:
+    task:
+      id: id
+    name: 名称
+ description: 詳しい名称
+ created_at: 登録日時
+ updated_at: 更新日時
+
 --2020-09-10 14:44:53--  https://raw.githubusercontent.com/svenfuchs/rails-i18n/master/rails/locale/ja.yml
 raw.githubusercontent.com (raw.githubusercontent.com) をDNSに問いあわせています... 151.101.88.133
 raw.githubusercontent.com (raw.githubusercontent.com)|151.101.88.133|:443 に接続しています... 接続しました。

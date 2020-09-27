@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe 'タスク管理機能', type: :system do
   describe '一覧機能表示' do
   	before do

@@ -12,6 +12,11 @@ class TasksController < ApplicationController
   	@task = Task.new
   end
 
+  def confirm_new
+    @task = current_user.tasks.new(task_params)
+    render :new unless @task.valid?
+  end
+
   def edit
   end
 
@@ -26,7 +31,12 @@ class TasksController < ApplicationController
   end
 
   def create
-  	@task = Task.new(task_params.merge(user_id: current_user.id))
+  	@task = current_user.tasks.new(task_params)
+
+    if params[:back].present?
+       render :new
+       return
+    end
 
   	if @task.save
   	  redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"

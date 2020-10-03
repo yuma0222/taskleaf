@@ -1,5 +1,13 @@
 class Task < ApplicationRecord
 	#validates :name, presence: true
+	def self.ransakable_attributes(auth_object = nil)
+      %w[name created_at]
+    end
+
+    def self.ransakable_associations(auth_object = nil)
+      []
+    end
+
 	validates :name, length: { maximum: 30 }
 	validate :validate_name_not_including_comma
 

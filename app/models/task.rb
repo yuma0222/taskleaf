@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
+	has_one_attached :image
+
 	#validates :name, presence: true
 	def self.ransakable_attributes(auth_object = nil)
       %w[name created_at]

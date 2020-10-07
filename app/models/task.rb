@@ -1,5 +1,6 @@
 class Task < ApplicationRecord
 	has_one_attached :image
+  paginates_per 50
 
 	#validates :name, presence: true
 	def self.ransakable_attributes(auth_object = nil)

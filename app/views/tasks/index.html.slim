@@ -21,12 +21,12 @@ h1 タスク一覧
 table.table.table-hover
   thead.thead-default
     tr
-      th= sort_link(@q, :name)
+      th= sort_link(@q, :name, "created_at desc")
       th= Task.human_attribute_name(:created_at)
       th
   tbody
     - @tasks.each do |task|
-      tr
+      tr id='task-#{task.id}'
         td= link_to task.name, task
         td= task.created_at
         td

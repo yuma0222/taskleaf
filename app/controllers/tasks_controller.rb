@@ -38,7 +38,6 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
-    head :no_content
   end
 
   def create
@@ -51,7 +50,6 @@ class TasksController < ApplicationController
 
   	if @task.save
       TaskMailer.creation_email(@task).deliver_now
-      SampleJob.set(wait_until: Date.tomorrow.noon).perform_later
   	  redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       render :new
